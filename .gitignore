@@ -1,12 +1,12 @@
-# unpacked plugin folders
-plugins/**/*
+## .NET
+bin/
+obj/
 
-# files directory where uploads go
-files
+## Rider / IntelliJ
+.idea/
 
-# DBMigrate plugin: generated SQL
-db/sql
+## VS Code
+.vscode/
 
-# AssetBundler plugin: generated bundles
-javascripts/bundles
-stylesheets/bundles
+## macOS
+.DS_Store
