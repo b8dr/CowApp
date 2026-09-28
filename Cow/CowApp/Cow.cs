@@ -2,10 +2,31 @@ namespace CowApp;
 
 public class Cow:IEquatable<Cow>,IComparable<Cow>
 {
-    public string Name { get; private set; }
-    public string Colour { get; private set; }
-    public int Age { get; private set; }
+    public string Name { get;  set; }
+    public string Colour { get;  set; }
+    public int Age { get;  set; }
 
+    public int Binnits
+    {
+        get
+        {
+            return Age / 5 + Colour.Length -3;
+        }
+    }
+    public double Coolness
+    {
+        get
+        {
+            return (Age + Name.Length);
+        }
+        private set;
+    }
+    public Cow(string name, string colour, int age)
+    {
+        Name = name;
+        Colour = colour;
+        Age = age;
+    }
     #region Equatable
         public bool Equals(Cow? other)
         {
@@ -39,8 +60,13 @@ public class Cow:IEquatable<Cow>,IComparable<Cow>
             if (nameComparison != 0) return nameComparison;
             var colourComparison = string.Compare(Colour, other.Colour, StringComparison.Ordinal);
             if (colourComparison != 0) return colourComparison;
-            return Age.CompareTo(other.Age);
+            return Name.CompareTo(other.Name);
         }
     #endregion
+
+    public override string ToString()
+    {
+        return $"Name: {Name}, Colour: {Colour}, Age: {Age}, Coolness: {Coolness}, Binnits: {Binnits}";
+    }
     
 }
